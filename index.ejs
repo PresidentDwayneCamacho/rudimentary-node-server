@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>    
+  	<div class="container">
+      <h1>Post Entries</h1>
+      <form action="/add" method="post">
+        <input type="text" name="entry">
+        <input type="text" name="desc">
+        <input type="submit">
+      </form>
+  	  <div>
+        <% for (var key in items) { %>
+          <p>---------------------------</p>
+          <p><%= items[key][0] + ": " %></p>
+          <p><%= "--" + items[key][1] %></p>
+        <% } %>
+    	</div>
+    </div>
+
+  </body>
+</html>
+
