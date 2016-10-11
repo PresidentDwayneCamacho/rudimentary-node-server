@@ -9,9 +9,9 @@ var fs = require('fs');
 var posts = JSON.parse(fs.readFileSync('database.json','utf8'));
 
 
-var single_post = new Post('header','category','text body');
+//var single_post = new Post('header','category','text body');
 //console.log(single_post.header + ' ' + single_post.category + ' ' + single_post.text_body);
-single_post.print();
+//single_post.print();
 
 
 router.get('/', function(req, res){
@@ -30,18 +30,6 @@ router.post('/add', function(req, res){
 		if(err) throw err;
 	});
 	res.redirect('/');
-});
-
-// a page view counter
-app.use(function(req, res, next){
-  var views = req.session.views;
-
-  if(!views){
-    views = req.session.views = {};
-  }
-  var pathname = parseurl(req).pathname;
-  views[pathname] = (views[pathname] || 0) + 1;
-  next();
 });
 
 module.exports = router;
